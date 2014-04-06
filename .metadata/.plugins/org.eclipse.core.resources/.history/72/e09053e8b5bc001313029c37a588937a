@@ -1,0 +1,93 @@
+package com.swingdemo;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+import javax.swing.SpringLayout;
+
+public class swingdemo extends JFrame {
+
+	private final JButton bSpace1 = new JButton();
+	private final JButton bSpace2 = new JButton();
+	private final JButton bSpace3 = new JButton();
+	private final JButton bSpace4 = new JButton();
+	private final JButton bSpace5 = new JButton();
+	private final JButton bSpace6 = new JButton();
+	private final JButton bSpace7 = new JButton();
+	private final JButton bSpace8 = new JButton();
+	private final JButton bSpace9 = new JButton();
+	/**
+	 * Launch the application
+	 * @param args
+	 */
+	public static void main(String args[]) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					swingdemo frame = new swingdemo();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame
+	 */
+	public swingdemo() {
+		super();
+		setBounds(100, 100, 354, 371);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		try {
+			jbInit();
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		//
+	}
+	private void jbInit() throws Exception {
+		getContentPane().setLayout(null);
+		setTitle("Tic-Tac-Joe");
+		
+		getContentPane().add(bSpace1);
+		bSpace1.setBounds(43, 32, 80, 80);
+		
+		getContentPane().add(bSpace2);
+		bSpace2.setBounds(129, 32, 80, 80);
+		
+		getContentPane().add(bSpace3);
+		bSpace3.setBounds(215, 32, 80, 80);
+		
+		getContentPane().add(bSpace4);
+		bSpace4.setBounds(43, 118, 80, 80);
+		
+		getContentPane().add(bSpace5);
+		bSpace5.setBounds(129, 118, 80, 80);
+		
+		getContentPane().add(bSpace6);
+		bSpace6.setBounds(215, 118, 80, 80);
+		
+		getContentPane().add(bSpace7);
+		bSpace7.setBounds(43, 204, 80, 80);
+		
+		getContentPane().add(bSpace8);
+		bSpace8.setBounds(129, 204, 80, 80);
+		
+		getContentPane().add(bSpace9);
+		bSpace9.setBounds(215, 204, 80, 80);
+	}
+	private class HelloButtonActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			helloButton_actionPerformed(e);
+		}
+	}
+
+}

@@ -1,0 +1,36 @@
+package com.swingdemo;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+
+public class swingdemo extends JFrame {
+
+	/**
+	 * Launch the application
+	 * @param args
+	 */
+	public static void main(String args[]) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					swingdemo frame = new swingdemo();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame
+	 */
+	public swingdemo() {
+		super();
+		setBounds(100, 100, 500, 375);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//
+	}
+
+}

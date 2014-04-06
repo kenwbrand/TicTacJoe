@@ -1,0 +1,63 @@
+package com.swingdemo;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
+import javax.swing.JFrame;
+import javax.swing.SpringLayout;
+
+public class swingdemo extends JFrame {
+
+	private final JButton button = new JButton();
+	/**
+	 * Launch the application
+	 * @param args
+	 */
+	public static void main(String args[]) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					swingdemo frame = new swingdemo();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame
+	 */
+	public swingdemo() {
+		super();
+		setBounds(100, 100, 500, 375);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		try {
+			jbInit();
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		//
+	}
+	private void jbInit() throws Exception {
+		getContentPane().setLayout(new BorderLayout());
+		
+		getContentPane().add(button, BorderLayout.NORTH);
+		button.addActionListener(new ButtonActionListener());
+		button.setText("New JButton");
+	}
+	private class ButtonActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			button_actionPerformed(e);
+		}
+	}
+	protected void button_actionPerformed(ActionEvent e) {
+		System.out.println("Hello world!");
+	}
+
+}

@@ -1,0 +1,54 @@
+package com.swingdemo;
+
+import java.awt.EventQueue;
+import javax.swing.JButton;
+
+import javax.swing.JFrame;
+import javax.swing.SpringLayout;
+
+public class swingdemo extends JFrame {
+
+	private SpringLayout springLayout;
+	private final JButton button = new JButton();
+	/**
+	 * Launch the application
+	 * @param args
+	 */
+	public static void main(String args[]) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					swingdemo frame = new swingdemo();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame
+	 */
+	public swingdemo() {
+		super();
+		setBounds(100, 100, 500, 375);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		try {
+			jbInit();
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		//
+	}
+	private void jbInit() throws Exception {
+		springLayout = new SpringLayout();
+		getContentPane().setLayout(springLayout);
+		
+		getContentPane().add(button);
+		springLayout.putConstraint(SpringLayout.SOUTH, button, 90, SpringLayout.NORTH, getContentPane());
+		springLayout.putConstraint(SpringLayout.WEST, button, 220, SpringLayout.WEST, getContentPane());
+		button.setText("New JButton");
+	}
+
+}

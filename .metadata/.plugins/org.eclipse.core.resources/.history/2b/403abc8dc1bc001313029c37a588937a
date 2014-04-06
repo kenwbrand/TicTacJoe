@@ -1,0 +1,274 @@
+package com.swingdemo;
+
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class swingdemo extends JFrame {
+
+	private final JButton bSpace1 = new JButton();
+	private final JButton bSpace2 = new JButton();
+	private final JButton bSpace3 = new JButton();
+	private final JButton bSpace4 = new JButton();
+	private final JButton bSpace5 = new JButton();
+	private final JButton bSpace6 = new JButton();
+	private final JButton bSpace7 = new JButton();
+	private final JButton bSpace8 = new JButton();
+	private final JButton bSpace9 = new JButton();
+	private final JButton startGameButton = new JButton();
+	private final JLabel gameInfo = new JLabel();
+	private boolean inGame;
+	private int playerNumber;
+	
+	/**
+	 * Launch the application
+	 * @param args
+	 */
+	public static void main(String args[]) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					swingdemo frame = new swingdemo();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame
+	 */
+	public swingdemo() {
+		super();
+		setBounds(100, 100, 354, 388);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		try {
+			jbInit();
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		//
+	}
+	private void jbInit() throws Exception {
+		inGame = false;
+		playerNumber = 1;
+		getContentPane().setLayout(null);
+		setResizable(false);
+		setTitle("Tic-Tac-Joe");
+		
+		getContentPane().add(bSpace1);
+		bSpace1.addActionListener(new BSpace1ActionListener());
+		bSpace1.setBounds(43, 32, 80, 80);
+		
+		getContentPane().add(bSpace2);
+		bSpace2.addActionListener(new BSpace2ActionListener());
+		bSpace2.setBounds(129, 32, 80, 80);
+		
+		getContentPane().add(bSpace3);
+		bSpace3.addActionListener(new BSpace3ActionListener());
+		bSpace3.setBounds(215, 32, 80, 80);
+		
+		getContentPane().add(bSpace4);
+		bSpace4.addActionListener(new BSpace4ActionListener_1());
+		bSpace4.setBounds(43, 118, 80, 80);
+		
+		getContentPane().add(bSpace5);
+		bSpace5.addActionListener(new BSpace5ActionListener());
+		bSpace5.setBounds(129, 118, 80, 80);
+		
+		getContentPane().add(bSpace6);
+		bSpace6.addActionListener(new BSpace6ActionListener());
+		bSpace6.setBounds(215, 118, 80, 80);
+		
+		getContentPane().add(bSpace7);
+		bSpace7.addActionListener(new BSpace7ActionListener());
+		bSpace7.setBounds(43, 204, 80, 80);
+		
+		getContentPane().add(bSpace8);
+		bSpace8.addActionListener(new BSpace8ActionListener());
+		bSpace8.setBounds(129, 204, 80, 80);
+		
+		getContentPane().add(bSpace9);
+		bSpace9.addActionListener(new BSpace9ActionListener());
+		bSpace9.setBounds(215, 204, 80, 80);
+		
+		getContentPane().add(startGameButton);
+		startGameButton.addActionListener(new StartGameButtonActionListener());
+		startGameButton.setText("Start Game");
+		startGameButton.setBounds(79, 305, 197, 35);
+		
+		getContentPane().add(gameInfo);
+		gameInfo.setText("Start a new game");
+		gameInfo.setBounds(0, 0, 348, 26);
+	}
+	private class StartGameButtonActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			startGameButton_actionPerformed(e);
+		}
+	}
+	private class BSpace1ActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			spaceSelected(e,1);
+		}
+	}
+	private class BSpace2ActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			spaceSelected(e,2);
+		}
+	}
+	private class BSpace3ActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			spaceSelected(e,3);
+		}
+	}
+	private class BSpace4ActionListener_1 implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			spaceSelected(e,4);
+		}
+	}
+	private class BSpace5ActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			spaceSelected(e,5);
+		}
+	}
+	private class BSpace6ActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			spaceSelected(e,6);
+		}
+	}
+	private class BSpace7ActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			spaceSelected(e,7);
+		}
+	}
+	private class BSpace8ActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			spaceSelected(e,8);
+		}
+	}
+	private class BSpace9ActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			spaceSelected(e,9);
+		}
+	}
+	protected void startGameButton_actionPerformed(ActionEvent e) {
+		if (inGame) {
+		  gameInfo.setText("Game already in progress");  	
+		} else {
+		  InitBoard();
+		  inGame = true;
+		  gameInfo.setText("X's turn, select a space");
+		}
+	}
+
+
+	private void InitBoard() {
+		bSpace1.setText("");
+		bSpace2.setText("");
+		bSpace3.setText("");
+		bSpace4.setText("");
+		bSpace5.setText("");
+		bSpace6.setText("");
+		bSpace7.setText("");
+		bSpace8.setText("");
+		bSpace9.setText("");
+	}
+	
+	private boolean checkspace(int space) {
+		boolean Spacestatus;
+		 switch (space) {
+         case 1: 
+        	 if (bSpace1.getText() == "") { 
+        	   Spacestatus = true;
+        	 }
+        	 else {
+        	   Spacestatus = false;
+        	 }
+             break;
+         case 2: 
+        	 if (bSpace2.getText() == "") { 
+        	   Spacestatus = true;
+        	 }
+        	 else {
+        	   Spacestatus = false;
+        	 }
+             break;
+         case 3: 
+        	 if (bSpace3.getText() == "") { 
+        	   Spacestatus = true;
+        	 }
+        	 else {
+        	   Spacestatus = false;
+        	 }
+             break;
+         case 4: 
+        	 if (bSpace4.getText() == "") { 
+        	   Spacestatus = true;
+        	 }
+        	 else {
+        	   Spacestatus = false;
+        	 }
+             break;
+         case 5: 
+        	 if (bSpace5.getText() == "") { 
+        	   Spacestatus = true;
+        	 }
+        	 else {
+        	   Spacestatus = false;
+        	 }
+             break;
+         case 6: 
+        	 if (bSpace6.getText() == "") { 
+        	   Spacestatus = true;
+        	 }
+        	 else {
+        	   Spacestatus = false;
+        	 }
+             break;
+         case 7: 
+        	 if (bSpace7.getText() == "") { 
+        	   Spacestatus = true;
+        	 }
+        	 else {
+        	   Spacestatus = false;
+        	 }
+             break;
+         case 8: 
+        	 if (bSpace8.getText() == "") { 
+        	   Spacestatus = true;
+        	 }
+        	 else {
+        	   Spacestatus = false;
+        	 }
+             break;
+         case 9: 
+        	 if (bSpace9.getText() == "") { 
+        	   Spacestatus = true;
+        	 }
+        	 else {
+        	   Spacestatus = false;
+        	 }
+             break;
+         default: Spacestatus = false;
+                  break;
+     }
+		return Spacestatus;
+	}
+	
+	protected void spaceSelected(ActionEvent e, int position) {
+	  if (inGame && checkspace(position)) {
+		  JButton b = (JButton)e.getSource(); 
+		  b.setText("somthing");
+	  }
+		
+	}
+	
+
+}

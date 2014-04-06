@@ -58,7 +58,6 @@ public class swingdemo extends JFrame {
 	}
 	private void jbInit() throws Exception {
 		inGame = false;
-		playerNumber = 1;
 		getContentPane().setLayout(null);
 		setResizable(false);
 		setTitle("Tic-Tac-Joe");
@@ -163,7 +162,8 @@ public class swingdemo extends JFrame {
 		  gameInfo.setText("Game already in progress");  	
 		} else {
 		  InitBoard();
-		  inGame = true;
+  		  playerNumber = 1;
+	      inGame = true;
 		  gameInfo.setText("X's turn, select a space");
 		}
 	}
@@ -321,6 +321,14 @@ public class swingdemo extends JFrame {
 		    gameOver = true;
 		    inGame = false;
 		    gameInfo.setText(bSpace3.getText() + " wins the game");
+		  }
+	  if (!gameOver
+			  && (bSpace1.getText() != "") && (bSpace2.getText() != "") && (bSpace3.getText() != "")
+			  && (bSpace4.getText() != "") && (bSpace5.getText() != "") && (bSpace6.getText() != "")
+			  && (bSpace7.getText() != "") && (bSpace8.getText() != "") && (bSpace9.getText() != "")) {
+		    gameOver = true;
+		    inGame = false;
+		    gameInfo.setText("Cat's game");
 		  }
 		
 	}
